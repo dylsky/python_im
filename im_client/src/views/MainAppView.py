@@ -33,9 +33,9 @@ class MainAppView(tk.Frame):
 
         self.my_msg = tk.StringVar()  # For the messages to be sent.
         self.my_msg.set("Type your messages here.")
-        entry_field = tk.Entry(self, textvariable=self.my_msg, width=160)
-        #entry_field.bind("<Return>", send)
-        entry_field.grid(row=2, column=0, columnspan=3, padx=10, pady=15)
+        self.entry_field = tk.Entry(self, textvariable=self.my_msg, width=160)
+
+        self.entry_field.grid(row=2, column=0, columnspan=3, padx=10, pady=15)
         self.send_button = tk.Button(self, text="Send")
         self.send_button.grid(row=2, column=3, sticky="nwse", padx=10, pady=15)
 

@@ -24,7 +24,11 @@ class MainAppController(object):
         receive_thread = Thread(target=self.message_listen)
         receive_thread.start()
 
+        self.view.entry_field.bind("<Return>", self.send)
+        self.view.entry_field.bind("<FocusIn>", self.clear_input_on_focus)
         self.view.send_button.config(command=self.send)
+
+        root.protocol("WM_DELETE_WINDOW", self.on_closing)
 
         # Start the gui
         self.view.start_gui()
@@ -51,4 +55,13 @@ class MainAppController(object):
         self.client_socket.send(bytes(msg, "utf8"))
         if msg == "{quit}":
             self.client_socket.close()
-            #top.quit()
+            self.view.quit()
+
+    def on_closing(self, event=None):
+        """This function is to be called when the window is closed."""
+        self.view.my_msg.set("{quit}")
+        self.send()
+
+    def clear_input_on_focus(self, event=None):
+        self.view.my_msg.set("")
+
