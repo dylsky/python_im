@@ -1,43 +1,54 @@
 from src.views.MainAppView import MainAppView
+from src.models.MainAppModels import MainAppModel
+from socket import AF_INET, socket, SOCK_STREAM
+from threading import Thread
+import tkinter as tk
+import select
 
 
 class MainAppController(object):
+    def init_view(self, root):
+        """Initializes GUI view. In addition it bindes the Buttons with the callback methods."""
+        self.view = MainAppView(master=root)
+        self.model = MainAppModel()
+        self.model.new_message.addCallback(self.message_received)
 
-    def nothing(self):
-        pass
+        self.HOST = "127.0.0.1"
+        self.PORT = 33000
+        self.BUFSIZ = 1024
+        self.ADDR = (self.HOST, self.PORT)
 
-    def receive(self):
+        self.client_socket = socket(AF_INET, SOCK_STREAM)
+        self.client_socket.connect(self.ADDR)
+
+        receive_thread = Thread(target=self.message_listen)
+        receive_thread.start()
+
+        self.view.send_button.config(command=self.send)
+
+        # Start the gui
+        self.view.start_gui()
+
+    def message_received(self, message):
+        self.view.msg_list.insert(tk.END, message)
+
+    def message_listen(self):
         """Handles receiving of messages."""
         while True:
             try:
-                msg = client_socket.recv(BUFSIZ).decode("utf8")
-                msg_list.insert(tkinter.END, msg)
-            except OSError:  # Possibly client has left the chat.
+                self.client_socket.setblocking(0)
+                ready = select.select([self.client_socket], [], [], 1)
+                if ready[0]:
+                    msg = self.client_socket.recv(self.BUFSIZ).decode("utf8")
+                    self.message_received(msg)
+            except OSError:  # Possibly client has left the сhat.
                 break
 
     def send(self, event=None):  # event is passed by binders.
         """Handles sending of messages."""
-        msg = my_msg.get()
-        my_msg.set("")  # Clears input field.
-        client_socket.send(bytes(msg, "utf8"))
+        msg = self.view.my_msg.get()
+        self.view.my_msg.set("")  # Clears input field.
+        self.client_socket.send(bytes(msg, "utf8"))
         if msg == "{quit}":
-            client_socket.close()
-            top.quit()
-
-    def on_closing(self, event=None):
-        """This function is to be called when the window is closed."""
-        my_msg.set("{quit}")
-        send()
-
-    def init_view(self, root):
-        """Initializes GUI view. In addition it bindes the Buttons with the callback methods."""
-        self.view = MainAppView(master=root)
-
-        # Bind buttons with callback methods
-        self.view.one["command"] = self.nothing
-        self.view.two["command"] = self.nothing
-        self.view.three["command"] = self.nothing
-        self.view.four["command"] = self.nothing
-
-        # Start the gui
-        self.view.start_gui()
+            self.client_socket.close()
+            #top.quit()

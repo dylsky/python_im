@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6a1afe08-0d3f-4208-93e8-5832f0d0cf82" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/python_im.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/im_client/.idea/im_client.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/im_server/.idea/im_server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/im.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/client.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server.py" beforeDir="false" />
-    </list>
+    <list default="true" id="6a1afe08-0d3f-4208-93e8-5832f0d0cf82" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +31,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.MainApp">
+    <configuration name="MainApp" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="python_im" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/im_client/src/applications" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/im_client/src/applications/MainApp.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="client" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="python_im" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -67,6 +78,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.MainApp" />
         <item itemvalue="Python.client" />
       </list>
     </recent_temporary>
@@ -82,6 +94,7 @@
       <option name="presentableId" value="Default" />
       <updated>1568895908703</updated>
       <workItem from="1568895912689" duration="268000" />
+      <workItem from="1569238567077" duration="42000" />
     </task>
     <servers />
   </component>
@@ -93,7 +106,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -101,5 +116,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/python_im$client.coverage" NAME="client Coverage Results" MODIFIED="1568896163504" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/im_client" />
+    <SUITE FILE_PATH="coverage/python_im$MainApp.coverage" NAME="MainApp Coverage Results" MODIFIED="1569238601352" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/im_client/src/applications" />
   </component>
 </project>
